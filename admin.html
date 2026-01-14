@@ -1,0 +1,524 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Panel - JAWADKO</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #0a0a0f 0%, #1a1a2e 100%);
+            min-height: 100vh;
+            color: #fff;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        
+        .header {
+            background: rgba(26, 26, 46, 0.8);
+            backdrop-filter: blur(10px);
+            padding: 2rem;
+            border-radius: 20px;
+            border: 2px solid #00d9ff;
+            box-shadow: 0 0 40px rgba(0, 217, 255, 0.3);
+            margin-bottom: 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+        
+        .header h1 {
+            font-size: 2rem;
+            color: #00d9ff;
+            text-shadow: 0 0 20px #00d9ff;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+        
+        .header i {
+            font-size: 2.5rem;
+            filter: drop-shadow(0 0 15px #00d9ff);
+        }
+        
+        .btn {
+            padding: 12px 25px;
+            border-radius: 10px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border: 2px solid;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            cursor: pointer;
+            font-size: 1rem;
+        }
+        
+        .btn-export {
+            background: linear-gradient(135deg, #ffeb3b, #ffd900);
+            border-color: #ffeb3b;
+            color: #0a0a0f;
+            box-shadow: 0 0 20px rgba(255, 235, 59, 0.3);
+        }
+        
+        .btn-export:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 0 30px rgba(255, 235, 59, 0.6);
+        }
+        
+        .btn-clear {
+            background: linear-gradient(135deg, #ff006e, #d90036);
+            border-color: #ff006e;
+            color: #fff;
+            box-shadow: 0 0 20px rgba(255, 0, 110, 0.3);
+        }
+        
+        .btn-clear:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 0 30px rgba(255, 0, 110, 0.6);
+        }
+        
+        .btn-website {
+            background: transparent;
+            border-color: #00d9ff;
+            color: #00d9ff;
+        }
+        
+        .btn-website:hover {
+            background: rgba(0, 217, 255, 0.1);
+            transform: translateY(-3px);
+        }
+        
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+        
+        .stat-card {
+            background: rgba(26, 26, 46, 0.8);
+            backdrop-filter: blur(10px);
+            padding: 2rem;
+            border-radius: 15px;
+            border: 2px solid #00d9ff;
+            box-shadow: 0 0 20px rgba(0, 217, 255, 0.2);
+            text-align: center;
+        }
+        
+        .stat-card i {
+            font-size: 3rem;
+            color: #00d9ff;
+            margin-bottom: 1rem;
+            filter: drop-shadow(0 0 10px #00d9ff);
+        }
+        
+        .stat-card h3 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+            color: #00d9ff;
+        }
+        
+        .stat-card p {
+            color: #b0b0c8;
+            font-size: 1.1rem;
+        }
+        
+        .submissions-section {
+            background: rgba(26, 26, 46, 0.8);
+            backdrop-filter: blur(10px);
+            padding: 2rem;
+            border-radius: 20px;
+            border: 2px solid #00d9ff;
+            box-shadow: 0 0 40px rgba(0, 217, 255, 0.3);
+        }
+        
+        .section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+        
+        .section-header h2 {
+            font-size: 1.8rem;
+            color: #00d9ff;
+            text-shadow: 0 0 10px #00d9ff;
+        }
+        
+        .search-box {
+            padding: 12px 20px;
+            background: rgba(10, 10, 15, 0.5);
+            border: 2px solid transparent;
+            border-radius: 10px;
+            color: #fff;
+            width: 300px;
+            transition: all 0.3s ease;
+            font-size: 1rem;
+        }
+        
+        .search-box:focus {
+            outline: none;
+            border-color: #00d9ff;
+            box-shadow: 0 0 20px rgba(0, 217, 255, 0.3);
+        }
+        
+        .submission-card {
+            background: rgba(10, 10, 15, 0.5);
+            padding: 1.5rem;
+            border-radius: 15px;
+            border: 2px solid rgba(0, 217, 255, 0.3);
+            margin-bottom: 1rem;
+            transition: all 0.3s ease;
+        }
+        
+        .submission-card:hover {
+            border-color: #00d9ff;
+            box-shadow: 0 0 20px rgba(0, 217, 255, 0.2);
+            transform: translateX(5px);
+        }
+        
+        .submission-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 1rem;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+        
+        .submission-info h3 {
+            color: #00d9ff;
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .submission-info p {
+            color: #b0b0c8;
+            margin: 0.3rem 0;
+        }
+        
+        .submission-info i {
+            margin-right: 8px;
+            color: #ffeb3b;
+        }
+        
+        .submission-actions {
+            display: flex;
+            gap: 0.5rem;
+        }
+        
+        .btn-delete {
+            background: linear-gradient(135deg, #ff006e, #d90036);
+            border: 2px solid #ff006e;
+            color: #fff;
+            padding: 8px 16px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+        
+        .btn-delete:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 20px rgba(255, 0, 110, 0.5);
+        }
+        
+        .submission-details {
+            background: rgba(0, 0, 0, 0.3);
+            padding: 1rem;
+            border-radius: 10px;
+            border-left: 4px solid #ffeb3b;
+        }
+        
+        .submission-details h4 {
+            color: #ffeb3b;
+            margin-bottom: 0.5rem;
+        }
+        
+        .submission-details p {
+            color: #fff;
+            line-height: 1.6;
+        }
+        
+        .empty-state {
+            text-align: center;
+            padding: 4rem 2rem;
+            color: #b0b0c8;
+        }
+        
+        .empty-state i {
+            font-size: 5rem;
+            margin-bottom: 1.5rem;
+            opacity: 0.5;
+        }
+        
+        .empty-state h3 {
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+        }
+        
+        @media (max-width: 768px) {
+            .header {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .header h1 {
+                font-size: 1.5rem;
+            }
+            
+            .search-box {
+                width: 100%;
+            }
+            
+            .submission-header {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>
+                <i class="fas fa-shield-alt"></i>
+                JAWADKO Admin Panel
+            </h1>
+            <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
+                <button class="btn btn-export" onclick="exportToCSV()">
+                    <i class="fas fa-download"></i> Export CSV
+                </button>
+                <button class="btn btn-clear" onclick="clearAll()">
+                    <i class="fas fa-trash"></i> Clear All
+                </button>
+                <a href="index.html" class="btn btn-website" target="_blank">
+                    <i class="fas fa-globe"></i> View Website
+                </a>
+            </div>
+        </div>
+        
+        <div class="stats">
+            <div class="stat-card">
+                <i class="fas fa-envelope"></i>
+                <h3 id="totalCount">0</h3>
+                <p>Total Submissions</p>
+            </div>
+            <div class="stat-card">
+                <i class="fas fa-clock"></i>
+                <h3 id="currentDate"></h3>
+                <p>Today's Date</p>
+            </div>
+            <div class="stat-card">
+                <i class="fas fa-chart-line"></i>
+                <h3 id="todayCount">0</h3>
+                <p>Today's Submissions</p>
+            </div>
+        </div>
+        
+        <div class="submissions-section">
+            <div class="section-header">
+                <h2><i class="fas fa-list"></i> All Submissions</h2>
+                <input type="text" id="searchBox" class="search-box" placeholder="Search submissions..." onkeyup="filterSubmissions()">
+            </div>
+            
+            <div id="submissionsContainer"></div>
+        </div>
+    </div>
+    
+    <script>
+        // Load submissions from localStorage
+        function loadSubmissions() {
+            const submissions = JSON.parse(localStorage.getItem('jawadko_submissions') || '[]');
+            return submissions;
+        }
+        
+        // Save submissions to localStorage
+        function saveSubmissions(submissions) {
+            localStorage.setItem('jawadko_submissions', JSON.stringify(submissions));
+        }
+        
+        // Display submissions
+        function displaySubmissions(submissionsToDisplay = null) {
+            const container = document.getElementById('submissionsContainer');
+            const submissions = submissionsToDisplay || loadSubmissions();
+            
+            // Update stats
+            document.getElementById('totalCount').textContent = submissions.length;
+            
+            const today = new Date().toDateString();
+            document.getElementById('currentDate').textContent = new Date().toLocaleDateString('en-US', { day: 'numeric', month: 'short', year: 'numeric' });
+            
+            const todaySubmissions = submissions.filter(s => new Date(s.date).toDateString() === today);
+            document.getElementById('todayCount').textContent = todaySubmissions.length;
+            
+            if (submissions.length === 0) {
+                container.innerHTML = `
+                    <div class="empty-state">
+                        <i class="fas fa-inbox"></i>
+                        <h3>No submissions yet</h3>
+                        <p>Form submissions will appear here when users contact you</p>
+                    </div>
+                `;
+                return;
+            }
+            
+            container.innerHTML = submissions.map((submission, index) => `
+                <div class="submission-card" data-index="${index}">
+                    <div class="submission-header">
+                        <div class="submission-info">
+                            <h3>${submission.name}</h3>
+                            <p><i class="fas fa-envelope"></i> ${submission.email}</p>
+                            <p><i class="fas fa-phone"></i> ${submission.phone}</p>
+                            <p><i class="fas fa-cogs"></i> ${submission.service}</p>
+                            <p><i class="fas fa-calendar"></i> ${new Date(submission.date).toLocaleString()}</p>
+                        </div>
+                        <div class="submission-actions">
+                            <button class="btn-delete" onclick="deleteSubmission(${index})">
+                                <i class="fas fa-trash"></i> Delete
+                            </button>
+                        </div>
+                    </div>
+                    <div class="submission-details">
+                        <h4>Message:</h4>
+                        <p>${submission.message}</p>
+                    </div>
+                </div>
+            `).join('');
+        }
+        
+        // Delete submission
+        function deleteSubmission(index) {
+            if (confirm('Are you sure you want to delete this submission?')) {
+                const submissions = loadSubmissions();
+                submissions.splice(index, 1);
+                saveSubmissions(submissions);
+                displaySubmissions();
+                showNotification('Submission deleted successfully!', 'success');
+            }
+        }
+        
+        // Clear all submissions
+        function clearAll() {
+            if (confirm('Are you sure you want to delete ALL submissions? This cannot be undone!')) {
+                if (confirm('Really sure? This will permanently delete everything!')) {
+                    localStorage.removeItem('jawadko_submissions');
+                    displaySubmissions();
+                    showNotification('All submissions cleared!', 'success');
+                }
+            }
+        }
+        
+        // Filter submissions
+        function filterSubmissions() {
+            const searchTerm = document.getElementById('searchBox').value.toLowerCase();
+            const submissions = loadSubmissions();
+            
+            if (!searchTerm) {
+                displaySubmissions();
+                return;
+            }
+            
+            const filtered = submissions.filter(submission => {
+                return submission.name.toLowerCase().includes(searchTerm) ||
+                       submission.email.toLowerCase().includes(searchTerm) ||
+                       submission.phone.toLowerCase().includes(searchTerm) ||
+                       submission.service.toLowerCase().includes(searchTerm) ||
+                       submission.message.toLowerCase().includes(searchTerm);
+            });
+            
+            displaySubmissions(filtered);
+        }
+        
+        // Export to CSV
+        function exportToCSV() {
+            const submissions = loadSubmissions();
+            
+            if (submissions.length === 0) {
+                alert('No submissions to export!');
+                return;
+            }
+            
+            const headers = ['Name', 'Email', 'Phone', 'Service', 'Message', 'Date'];
+            const csvContent = [
+                headers.join(','),
+                ...submissions.map(s => [
+                    `"${s.name}"`,
+                    `"${s.email}"`,
+                    `"${s.phone}"`,
+                    `"${s.service}"`,
+                    `"${s.message.replace(/"/g, '""')}"`,
+                    `"${new Date(s.date).toLocaleString()}"`
+                ].join(','))
+            ].join('\n');
+            
+            const blob = new Blob([csvContent], { type: 'text/csv;charset=utf-8;' });
+            const link = document.createElement('a');
+            const url = URL.createObjectURL(blob);
+            link.setAttribute('href', url);
+            link.setAttribute('download', `jawadko-submissions-${new Date().toISOString().split('T')[0]}.csv`);
+            link.style.visibility = 'hidden';
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+            
+            showNotification('CSV exported successfully!', 'success');
+        }
+        
+        // Show notification
+        function showNotification(message, type) {
+            const notification = document.createElement('div');
+            notification.style.cssText = `
+                position: fixed;
+                top: 20px;
+                right: 20px;
+                background: ${type === 'success' ? 'linear-gradient(135deg, #00d9ff, #0066ff)' : 'linear-gradient(135deg, #ff006e, #d90036)'};
+                color: white;
+                padding: 1rem 1.5rem;
+                border-radius: 10px;
+                box-shadow: 0 5px 30px rgba(0, 0, 0, 0.3);
+                z-index: 10000;
+                font-weight: 600;
+                animation: slideIn 0.3s ease;
+            `;
+            notification.textContent = message;
+            document.body.appendChild(notification);
+            
+            setTimeout(() => {
+                notification.style.animation = 'slideOut 0.3s ease';
+                setTimeout(() => notification.remove(), 300);
+            }, 3000);
+        }
+        
+        // Initialize
+        displaySubmissions();
+        
+        // Refresh every 5 seconds to check for new submissions
+        setInterval(() => {
+            displaySubmissions();
+        }, 5000);
+        
+        console.log('JAWADKO Admin Panel loaded successfully! 🚀');
+    </script>
+</body>
+</html>
+

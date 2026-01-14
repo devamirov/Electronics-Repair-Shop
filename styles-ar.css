@@ -1,0 +1,411 @@
+/* ==================== ARABIC RTL STYLES ==================== */
+
+/* Arabic Font Support */
+body {
+    font-family: 'Segoe UI', 'Arial', 'Tahoma', sans-serif;
+}
+
+/* RTL Specific Adjustments */
+.navbar .container {
+    flex-direction: row-reverse;
+}
+
+.logo {
+    flex-direction: row-reverse;
+}
+
+.nav-links {
+    flex-direction: row-reverse;
+}
+
+/* Hero Section RTL */
+.hero-content {
+    direction: rtl;
+}
+
+.hero-buttons {
+    display: flex;
+    flex-direction: row-reverse;
+    gap: 1.5rem;
+    margin-bottom: 3rem;
+}
+
+.btn {
+    flex-direction: row-reverse;
+}
+
+.stats {
+    flex-direction: row-reverse;
+}
+
+/* Services Grid */
+.service-features li {
+    flex-direction: row-reverse;
+}
+
+/* About Section RTL */
+.about-content {
+    direction: rtl;
+}
+
+.feature-item {
+    flex-direction: row-reverse;
+    text-align: right;
+}
+
+.features-list {
+    direction: rtl;
+}
+
+/* Contact Section RTL */
+.contact-content {
+    direction: rtl;
+}
+
+.contact-item {
+    flex-direction: row-reverse;
+    text-align: right;
+}
+
+.contact-item:hover {
+    transform: translateX(-10px);
+}
+
+.form-icon {
+    right: auto;
+    left: 20px;
+}
+
+/* Footer RTL */
+.footer-logo {
+    flex-direction: row-reverse;
+}
+
+/* Arrows for RTL */
+.btn-primary i.fa-arrow-right {
+    transform: scaleX(-1);
+}
+
+/* Section Title */
+.section-title {
+    flex-direction: row-reverse;
+}
+
+/* Social Links */
+.social-links {
+    flex-direction: row-reverse;
+}
+
+/* Glitch Effect for Arabic */
+.glitch::before,
+.glitch::after {
+    right: 0;
+    left: auto;
+}
+
+/* Mobile Menu */
+@media (max-width: 968px) {
+    .nav-links {
+        text-align: center;
+        flex-direction: column;
+    }
+    
+    .nav-links.active {
+        right: auto;
+        left: 0;
+    }
+}
+
+/* Fix for Arabic numbers in stats */
+.stat-item h3 {
+    direction: ltr;
+    display: inline-block;
+}
+
+/* Contact Details Alignment */
+.contact-details {
+    text-align: right;
+}
+
+/* Form Input Text Alignment */
+.form-input {
+    text-align: right;
+    padding: 15px 20px 15px 50px;
+}
+
+/* Feature Content Alignment */
+.feature-content {
+    text-align: right;
+}
+
+.feature-content h4,
+.feature-content p {
+    text-align: right;
+}
+
+/* About Text Alignment */
+.about-text {
+    text-align: right;
+}
+
+.about-description {
+    text-align: right;
+}
+
+/* Service Card Text */
+.service-card {
+    text-align: right;
+}
+
+.service-card h3,
+.service-card > p {
+    text-align: right;
+}
+
+/* Hero Text Alignment */
+.hero-text {
+    text-align: right;
+}
+
+.hero-description {
+    text-align: right;
+}
+
+/* Section Subtitle */
+.section-subtitle {
+    text-align: center;
+}
+
+/* Fix Title Lines for RTL */
+.title-line {
+    order: 0;
+}
+
+/* Burger Menu Position */
+.burger {
+    order: -1;
+}
+
+/* Language Button in Mobile */
+@media (max-width: 968px) {
+    .language-btn {
+        display: block;
+        text-align: center;
+        margin-top: 1rem;
+    }
+}
+
+/* Scroll Indicator */
+.scroll-indicator {
+    direction: ltr;
+}
+
+/* Counter Display */
+.counter {
+    direction: ltr;
+}
+
+/* Experience Badge Text */
+.experience-badge {
+    left: -20px;
+    right: auto;
+}
+
+/* Fix Icon Positions in Hero */
+.floating-icon.icon-1 {
+    right: 10%;
+    left: auto;
+}
+
+.floating-icon.icon-2 {
+    left: 10%;
+    right: auto;
+}
+
+.floating-icon.icon-3 {
+    right: 5%;
+    left: auto;
+}
+
+.floating-icon.icon-4 {
+    left: 15%;
+    right: auto;
+}
+
+.floating-icon.icon-6 {
+    left: 30%;
+    right: auto;
+}
+
+/* Button Submit */
+.btn-submit {
+    flex-direction: row-reverse;
+}
+
+/* Fix Service Features Checkmark */
+.service-features i {
+    margin-left: 0;
+    margin-right: 0;
+}
+
+/* Better Arabic Typography */
+h1, h2, h3, h4, h5, h6 {
+    font-weight: 700;
+}
+
+p, li, span {
+    line-height: 1.8;
+}
+
+/* Improve Readability for Arabic */
+.hero-text h1 {
+    line-height: 1.3;
+}
+
+/* Fix Navigation Active State */
+.nav-link::after {
+    right: 50%;
+    left: auto;
+    transform: translateX(50%);
+}
+
+/* Footer Content */
+.footer-content {
+    direction: rtl;
+}
+
+/* About Content Grid Fix */
+@media (min-width: 969px) {
+    .about-content {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+/* Notification for RTL */
+.notification {
+    right: auto !important;
+    left: 20px !important;
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateX(-400px);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@keyframes slideOut {
+    from {
+        transform: translateX(0);
+        opacity: 1;
+    }
+    to {
+        transform: translateX(-400px);
+        opacity: 0;
+    }
+}
+
+/* Scroll Top Button Position */
+.scroll-top-btn {
+    right: auto !important;
+    left: 30px !important;
+}
+
+/* Floating WhatsApp Button RTL */
+.floating-whatsapp {
+    right: auto !important;
+    left: 30px !important;
+    color: white !important;
+}
+
+.floating-whatsapp:visited {
+    background: #25D366 !important;
+    color: white !important;
+}
+
+.floating-whatsapp i {
+    color: white !important;
+}
+
+.floating-whatsapp:link,
+.floating-whatsapp:visited {
+    color: white !important;
+}
+
+.floating-whatsapp:link i,
+.floating-whatsapp:visited i {
+    color: white !important;
+}
+
+.floating-whatsapp:hover {
+    background: #128C7E !important;
+    color: white !important;
+}
+
+.floating-whatsapp:hover i {
+    color: white !important;
+}
+
+.floating-whatsapp:focus {
+    background: #25D366 !important;
+    color: white !important;
+    outline: none !important;
+    border: none !important;
+}
+
+.floating-whatsapp:focus i {
+    color: white !important;
+}
+
+.floating-whatsapp:active {
+    background: #25D366 !important;
+    color: white !important;
+}
+
+.floating-whatsapp:active i {
+    color: white !important;
+}
+
+@media (max-width: 480px) {
+    .floating-whatsapp {
+        left: 20px !important;
+        right: auto !important;
+        color: white !important;
+    }
+    
+    .floating-whatsapp i {
+        color: white !important;
+    }
+}
+
+/* Responsive Hero Buttons */
+@media (max-width: 968px) {
+    .hero-buttons {
+        flex-direction: column;
+        align-items: center;
+    }
+}
+
+/* Better Spacing for Arabic Text */
+.service-card > p {
+    margin-bottom: 1.5rem;
+    line-height: 2;
+}
+
+.about-description {
+    line-height: 2;
+}
+
+.hero-description {
+    line-height: 2;
+}
+
+/* Fix Select Dropdown Arrow */
+select.form-input {
+    background-position: left 15px center;
+}
+

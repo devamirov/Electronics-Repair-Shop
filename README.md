@@ -1,5 +1,7 @@
 # JAWADKO - Tech Repair Website
 
+**Live:** https://jawadko.store  
+
 A stunning, modern website for JAWADKO tech repair services featuring a captivating blue, yellow, and red neon theme.
 
 ## Features
@@ -84,11 +86,8 @@ Update the social links in `index.html` (around line 328):
 
 ### Admin Panel:
 1. Access `admin-login.php` in your browser
-2. **Default Login:**
-   - Username: `admin`
-   - Password: `jawadko2025`
-3. **⚠️ Change password immediately!** (See ADMIN-SETUP.md)
-4. View all form submissions, search, and export to CSV
+2. Configure admin credentials locally (see `ADMIN-SETUP.md`) — do not commit real passwords
+3. View all form submissions, search, and export to CSV
 
 ### Deployment:
 - For PHP hosting: Upload all files via FTP (requires PHP 7.4+)
@@ -151,5 +150,4 @@ For customization help or issues, feel free to reach out!
 
 ---
 
-Built with passion for technology 🚀
-
+Built with passion for technology

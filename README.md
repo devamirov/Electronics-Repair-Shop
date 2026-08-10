@@ -1,5 +1,11 @@
-# JAWADKO - Tech Repair Website
+<p align="center">
+  <img src="./assets/Electronics-Repair-Shop-logo.svg" width="180">
+</p>
 
+<h1 align="center">JAWADKO — Tech Repair</h1>
+
+**Type:** Business website  
+**Stack:** HTML, CSS, JS, PHP  
 **Live:** https://jawadko.store  
 
 A stunning, modern website for JAWADKO tech repair services featuring a captivating blue, yellow, and red neon theme.
